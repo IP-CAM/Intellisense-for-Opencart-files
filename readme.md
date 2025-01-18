@@ -1,11 +1,13 @@
 # OpenCart Intellisense
 
-A Visual Studio Code extension that provides intellisense and "Go to Definition" functionality for OpenCart files. This extension helps developers navigate between controller and model files more efficiently by enabling Ctrl+Click navigation on model references.
+A Visual Studio Code extension that provides intellisense and "Go to Definition" functionality for OpenCart model files. This extension helps developers navigate between controller and model files more efficiently by enabling Ctrl+Click navigation on model references.
 
 ## Features
 
 - **Go to Definition**: Ctrl+Click on model methods to jump directly to their definitions
 - **Model Path Resolution**: Automatically resolves paths for OpenCart model patterns like `$this->model_api_test`
+- **Custom Path Configuration**: Support for custom OpenCart directory structures
+- **Multi-Context Support**: Works with both admin and catalog contexts
 - **PHP Support**: Works with all PHP files in your OpenCart project
 
 ## Installation
@@ -13,6 +15,7 @@ A Visual Studio Code extension that provides intellisense and "Go to Definition"
 ### From VSIX File
 
 1. **Package the Extension**
+
    ```bash
    # Install vsce globally
    npm install -g @vscode/vsce
@@ -29,6 +32,7 @@ A Visual Studio Code extension that provides intellisense and "Go to Definition"
    Choose one of these methods:
 
    **Method 1 - Using VS Code UI:**
+
    1. Open VS Code
    2. Press `Ctrl+Shift+X` to open Extensions panel
    3. Click "..." (More Actions)
@@ -36,11 +40,13 @@ A Visual Studio Code extension that provides intellisense and "Go to Definition"
    5. Navigate to and select your `.vsix` file
 
    **Method 2 - Using Command Line:**
+
    ```bash
    code --install-extension opencart-intellisense-0.0.1.vsix
    ```
 
    **Method 3 - Using Command Palette:**
+
    1. Press `Ctrl+Shift+P`
    2. Type "Extensions: Install from VSIX"
    3. Press Enter
@@ -48,15 +54,68 @@ A Visual Studio Code extension that provides intellisense and "Go to Definition"
 
 3. **Reload VS Code** when prompted
 
+## Configuration
+
+The extension supports custom path configuration for different OpenCart directory structures. You can configure these settings in your VS Code settings:
+
+1. Open VS Code Settings (File > Preferences > Settings)
+2. Search for "OpenCart Intellisense"
+3. Configure the following settings:
+
+```json
+{
+  "opencartIntellisense.paths": {
+    "admin": "admin",
+    "catalog": "catalog",
+    "system": "system"
+  }
+}
+```
+
 ## Usage
 
 1. Open any PHP file in your OpenCart project
 2. Hold Ctrl and hover over a model reference (e.g., `$this->model_api_test->getData()`)
 3. Click to navigate to the model definition
 
+### Available Settings
+
+- `opencartIntellisense.paths`: Object containing custom paths for OpenCart directories
+  - `admin`: Path to admin directory (default: "admin")
+  - `catalog`: Path to catalog directory (default: "catalog")
+  - `system`: Path to system directory (default: "system")
+
+### Example Directory Structure
+
+The extension now supports structures like:
+
+```
+your-opencart-project/
+├── app/
+│   ├── admin/
+│   │   ├── controller/
+│   │   ├── model/
+│   │   └── view/
+│   ├── catalog/
+│   │   ├── controller/
+│   │   ├── model/
+│   │   └── view/
+│   └── system/
+│       └── library/
+```
+
+## Path Resolution Logic
+
+The extension follows this order when looking for model files:
+
+1. Checks the current context (admin/catalog) based on the file you're editing
+2. Checks the system directory
+3. Checks the opposite context
+
 ## File Structure
 
 The extension expects your OpenCart project to follow the standard structure:
+
 ```
 your-opencart-project/
 └── model/
@@ -67,17 +126,20 @@ your-opencart-project/
 ## Development
 
 1. **Clone the Repository**
+
    ```bash
    git clone [repository-url]
    cd opencart-intellisense
    ```
 
 2. **Install Dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Compile**
+
    ```bash
    npm run compile
    ```
