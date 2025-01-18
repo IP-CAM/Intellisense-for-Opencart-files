@@ -111,6 +111,7 @@ The extension follows this order when looking for model files:
 1. Checks the current context (admin/catalog) based on the file you're editing
 2. Checks the system directory
 3. Checks the opposite context
+4. Checks the root directory
 
 ## File Structure
 
