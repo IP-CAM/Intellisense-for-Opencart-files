@@ -3,7 +3,7 @@
   "displayName": "OpenCart Intellisense",
   "description": "Provides intellisense for OpenCart files",
   "publisher": "iabhitech",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -18,11 +18,6 @@
     "configuration": {
       "title": "OpenCart Intellisense",
       "properties": {
-        "opencartIntellisense.basePath": {
-          "type": "string",
-          "default": "catalog",
-          "description": "Base path for the OpenCart application (e.g., catalog, admin)"
-        },
         "opencartIntellisense.paths": {
           "type": "object",
           "default": {
@@ -30,7 +25,8 @@
             "catalog": "catalog",
             "system": "system"
           },
-          "description": "Custom paths for OpenCart directories"
+          "description": "Custom paths for OpenCart directories",
+          "scope": "resource"
         }
       }
     },

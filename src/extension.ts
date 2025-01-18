@@ -62,10 +62,12 @@ function findModelFile(folder: string, name: string, currentFileUri: vscode.Uri)
     const possiblePaths = [
         // Try in current context (admin/catalog)
         path.join(rootPath, basePath, 'model', folder, `${capitalizeFirst(name)}.php`),
-        // Try in system
-        path.join(rootPath, paths.system, 'model', folder, `${capitalizeFirst(name)}.php`),
+        // Try in system, will use for library
+        // path.join(rootPath, paths.system, 'model', folder, `${capitalizeFirst(name)}.php`),
         // Try in opposite context
-        path.join(rootPath, isAdmin ? paths.catalog : paths.admin, 'model', folder, `${capitalizeFirst(name)}.php`)
+        path.join(rootPath, isAdmin ? paths.catalog : paths.admin, 'model', folder, `${capitalizeFirst(name)}.php`),
+        // Try in base path
+        path.join(rootPath, 'model', folder, `${capitalizeFirst(name)}.php`),
     ];
 
     for (const modelPath of possiblePaths) {
