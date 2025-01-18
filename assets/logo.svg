@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+    <!-- Background Circle -->
+    <circle cx="64" cy="64" r="60" fill="#2C3E50"/>
+    
+    <!-- Cart Icon Simplified -->
+    <path d="M30 48 H98 L90 72 H38 L30 48" fill="#3498DB" stroke="#ECF0F1" stroke-width="2"/>
+    <circle cx="45" cy="82" r="6" fill="#ECF0F1"/>
+    <circle cx="83" cy="82" r="6" fill="#ECF0F1"/>
+    
+    <!-- Code Brackets -->
+    <path d="M40 35 L25 64 L40 93" fill="none" stroke="#E74C3C" stroke-width="4" stroke-linecap="round"/>
+    <path d="M88 35 L103 64 L88 93" fill="none" stroke="#E74C3C" stroke-width="4" stroke-linecap="round"/>
+    
+    <!-- Intellisense Dots -->
+    <circle cx="64" cy="64" r="3" fill="#2ECC71"/>
+    <circle cx="74" cy="64" r="3" fill="#2ECC71"/>
+    <circle cx="54" cy="64" r="3" fill="#2ECC71"/>
+</svg>
