@@ -5,6 +5,7 @@ A Visual Studio Code extension that provides intellisense and "Go to Definition"
 ## Features
 
 - **Go to Definition**: Ctrl+Click on model methods to jump directly to their definitions
+- **Function Documentation**: Hover over model methods to see their documentation and declaration
 - **Model Path Resolution**: Automatically resolves paths for OpenCart model patterns like `$this->model_api_test`
 - **Custom Path Configuration**: Support for custom OpenCart directory structures
 - **Multi-Context Support**: Works with both admin and catalog contexts
@@ -75,8 +76,8 @@ The extension supports custom path configuration for different OpenCart director
 ## Usage
 
 1. Open any PHP file in your OpenCart project
-2. Hold Ctrl and hover over a model reference (e.g., `$this->model_api_test->getData()`)
-3. Click to navigate to the model definition
+2. Hold Ctrl and hover over a model reference (e.g., `$this->model_api_test->getData()`) to go to definition
+3. Simply hover over a model method to see its documentation and declaration
 
 ### Available Settings
 
@@ -180,7 +181,12 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Release Notes
 
-### 0.0.1
+### 0.0.4
+
+- Enhance "Go to Definition" to navigate precisely to function declarations
+- Added hover functionality to show function documentation and declaration
+
+### 0.0.1 to 0.0.3
 
 Initial release:
 - Basic model resolution

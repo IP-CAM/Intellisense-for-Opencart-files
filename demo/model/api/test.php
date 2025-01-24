@@ -1,7 +1,13 @@
 <?php
 class ModelApiTest extends Model
 {
-  public function getData($filter) {
+  /**
+   * Get data from db
+   * @param array $filter Filter data
+   * @return string
+   */
+  public function getData($filter)
+  {
     return "Hello World";
   }
 }

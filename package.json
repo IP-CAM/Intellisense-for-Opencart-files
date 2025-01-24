@@ -3,7 +3,7 @@
   "displayName": "OpenCart Intellisense",
   "description": "Provides intellisense for OpenCart files",
   "publisher": "iabhitech",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "icon": "assets/logo.png",
   "engines": {
     "vscode": "^1.85.0"
